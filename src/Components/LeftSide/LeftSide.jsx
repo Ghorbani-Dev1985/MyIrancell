@@ -1,12 +1,46 @@
-import React from 'react'
+import React from "react";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 
 function LeftSide() {
+  const percentage = 30;
   return (
-    <div className='grid col-span-2'>
-     
-      LeftSide
-    </div>
-  )
+    <section className="grid col-span-2 p-2">
+      <div className="flex flex-col gap-5">
+        {/* Profile Info */}
+        <div className="bg-white flex-between max-h-20 rounded-3xl p-2">
+          <span className="size-14 rounded-full bg-slate-100 border-[6px] border-primary"></span>
+          <p className="flex flex-col gap-1">
+            <span className="font-DanaBold">محمد قربانی</span>
+            <span className="text-sm">09358923824</span>
+          </p>
+        </div>
+        {/* Charge Info */}
+        <div className="flex flex-col items-center min-h-screen bg-primary/10 p-1 rounded-3xl">
+          <h2 className="flex-center my-3 font-MorabbaBold text-base">
+            شارژ باقی مانده سیم کارت
+          </h2>
+          <div className="size-28 mx-auto">
+            <CircularProgressbar
+              value={percentage}
+              text={`${percentage}%`}
+              styles={buildStyles({
+                strokeLinecap: "butt",
+                textSize: "14px",
+                className: "",
+                pathTransitionDuration: 0.5,
+                pathColor: `rgba(255, 204, 0)`,
+                textColor: "#000",
+                trailColor: "#d6d6d6",
+              })}
+            />
+          </div>
+          <p className="bg-primary font-DanaBold text-sm my-8 p-2 rounded-lg shadow-ring">سیم کارتت رو شارژ کن</p>
+          <p className="font-DanaBold">خدمات فعال</p>
+
+        </div>
+      </div>
+    </section>
+  );
 }
 
-export default LeftSide
+export default LeftSide;
