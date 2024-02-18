@@ -1,5 +1,5 @@
 import React from "react";
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import { CircularProgressbar, CircularProgressbarWithChildren, buildStyles } from "react-circular-progressbar";
 
 function LeftSide() {
   const percentage = 30;
@@ -19,20 +19,20 @@ function LeftSide() {
           <h2 className="flex-center my-3 font-MorabbaBold text-base">
             شارژ باقی مانده سیم کارت
           </h2>
-          <div className="size-28 mx-auto">
-            <CircularProgressbar
+          <div className="w-full mx-auto">
+            <CircularProgressbarWithChildren
               value={percentage}
-              text={`${percentage}%`}
               styles={buildStyles({
                 strokeLinecap: "butt",
                 textSize: "14px",
-                className: "",
-                pathTransitionDuration: 0.5,
+                pathTransitionDuration: 0.001,
                 pathColor: `rgba(255, 204, 0)`,
                 textColor: "#000",
                 trailColor: "#d6d6d6",
               })}
-            />
+            >
+        <p className="font-DanaBold text-xl">{percentage} تومان</p>
+            </CircularProgressbarWithChildren>
           </div>
           <p className="bg-primary font-DanaBold text-sm my-8 p-2 rounded-lg shadow-ring">سیم کارتت رو شارژ کن</p>
           <p className="font-DanaBold">خدمات فعال</p>
