@@ -8,11 +8,13 @@ function Layout() {
   return (
     <>
    
-    <main className='grid grid-cols-12 gap-5 min-h-screen w-full max-w-[1920px]'>
+    <main className='grid grid-cols-12 gap-5 h-full min-h-screen w-full max-w-[1920px]'>
       <RightSide />
-     <section className='grid col-span-8 bg-white pt-5'>
+     <section className='grid col-span-8 pt-5'>
        <div className='container'>
-        <img src={TopBanner} alt='topBanner' className='rounded-lg shadow-ring' />
+        <div className='flex-center'>
+        <img src={TopBanner} alt='topBanner' className='rounded-lg shadow-ring w-full h-44' />
+        </div>
         <Outlet />
        </div>
      </section>
