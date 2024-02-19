@@ -1,6 +1,7 @@
 import React from 'react'
 import Logo from '../../assets/Images/Logo/logo.svg'
-import { Divider } from '@mui/material'
+import { Button, Divider } from '@mui/material'
+import { Search } from '@mui/icons-material'
 
 
 function RightSide() {
@@ -11,6 +12,23 @@ function RightSide() {
        <span className='font-MorabbaBold text-2xl'>ایرانسل من</span>
         </div>
         <Divider />
+        {/* Search */}
+        <label class="relative w-full h-12 block transition-all my-3">
+                <input 
+                  class="rounded-xl bg-gray-100 outline-none text-slate-500 placeholder:text-slate-500  w-full h-full dark:border text-base pl-12 pr-5 block transition-all"
+                  name="s"
+                  type="text"
+                  placeholder="جستجو"
+                />
+                <button
+                  btnType="submit"
+                  className="absolute left-4 top-0 bottom-0 w-6 h-6 my-auto text-slate-500 dark:text-gray-500"
+                  disabled={false}
+                  
+                >
+                  <Search className="size-6" />
+                </button>
+              </label>
     </div>
   )
 }

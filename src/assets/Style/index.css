@@ -68,10 +68,6 @@
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
 }
-:is(.dark input) {
-  background-color: rgb(50 51 77);
-  color: rgb(255 255 255);
-}
 input + svg {
   position: absolute;
   left: 0px;
@@ -86,17 +82,10 @@ input + svg {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
-:is(.dark input + svg) {
-  color: rgb(148 163 184);
-}
 @me
   progress::-webkit-progress-bar {
     border-radius: 9999px;
     background-color: rgb(243 244 246);
-  }
-  
-  :is(.dark progress)::-webkit-progress-bar {
-    background-color: rgb(28 28 40);
   }
   
   progress::-webkit-progress-value {
@@ -104,9 +93,6 @@ input + svg {
     background-color: rgb(14 165 233);
   }
   
-  :is(.dark progress)::-webkit-progress-value {
-    background-color: rgb(78 129 251);
-  }
   .filter {
     position: fixed;
     right: 0px;
@@ -124,9 +110,6 @@ input + svg {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
 }
-:is(.dark .filter) {
-  background-color: rgb(40 41 61);
-}
 .filter__header {
   display: flex;
   align-items: center;
@@ -136,9 +119,6 @@ input + svg {
   padding-right: 1.5rem;
   padding-top: 1.5rem;
   padding-bottom: 1.25rem;
-}
-:is(.dark .filter__header) {
-  background-color: rgb(50 51 77);
 }
 .filter__head-title {
   display: flex;
@@ -160,10 +140,6 @@ input + svg {
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: rgb(236 72 153);
-}
-:is(.dark .filter__clean-btn) {
-  background-color: rgb(239 68 68 / 0.1);
-  color: rgb(239 68 68);
 }
 .filter__footer {
   margin-top: 1.5rem;
@@ -218,9 +194,6 @@ input + svg {
   padding-top: 1.5rem;
   padding-bottom: 1.25rem;
 }
-:is(.dark .bottom-sheet__header) {
-  background-color: rgb(50 51 77 );
-}
 .bottom-sheet__close-btn {
   display: flex;
   align-items: center;
@@ -239,9 +212,6 @@ input + svg {
   background-color: rgb(255 255 255);
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-}
-:is(.dark .bottom-sheet__body) {
-    background-color: rgb(40 41 61);
 }
 .bottom-sheet__item {
   display: flex;
@@ -262,12 +232,6 @@ input + svg {
 .bottom-sheet__item--selected {
   font-family: 'Dana Medium';
   color: rgb(63 63 70 );
-}
-:is(.dark .bottom-sheet__item) {
-  color: rgb(148 163 184);
-}
-:is(.dark .bottom-sheet__item--selected) {
-  color: rgb(255 255 255 );
 }
 }
 
