@@ -1,4 +1,4 @@
-import { AccountCircle } from "@mui/icons-material";
+import { AccountCircle, MailOutlineOutlined, WifiOutlined } from "@mui/icons-material";
 import React from "react";
 import { CircularProgressbar, CircularProgressbarWithChildren, buildStyles } from "react-circular-progressbar";
 import { Link } from "react-router-dom";
@@ -9,7 +9,7 @@ function LeftSide() {
   const percentage = 30;
   return (
     <section className="grid col-span-2 min-h-screen">
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5 p-2">
         {/* Profile Info */}
         <div className="bg-white flex-between max-h-20 rounded-3xl p-2">
           <span className="rounded-full text-slate-200 ring-4 ring-primary"><AccountCircle className="size-14"/></span>
@@ -40,15 +40,19 @@ function LeftSide() {
         <p className="font-DanaBold text-xl">{percentage} تومان</p>
             </CircularProgressbarWithChildren>
           </div>
-          <p className="bg-primary font-DanaBold text-sm my-8 p-2 rounded-lg shadow-ring">سیم کارتت رو شارژ کن</p>
-          <p className="font-DanaBold">خدمات فعال</p>
+          <p className="flex-center bg-primary font-DanaBold text-sm my-8 p-2 rounded-lg shadow-ring">سیم کارتت رو شارژ کن</p>
+          {/* Services */}
+          <p className="font-DanaBold my-8">خدمات فعال</p>
+             
+          <Services icon={<MailOutlineOutlined />} title="بسته پیامک هفته ای" date="تا تاریخ ۳۱ خرداد ۱۴۰۰" />
+          <Services icon={<WifiOutlined />} title="بسته  اینترنت ماهانه" date="تا تاریخ ۱۲ خرداد ۱۴۰۰" />
           </div>
           {/* Button Banner */}
-           <div className="bg-white flex-between max-h-20 rounded-3xl p-2 font-MorabbaBold">
+           <div className="w-full bg-white flex-between max-h-20 rounded-xl mb-4 p-2 font-MorabbaBold">
                  <Link to="https://myket.ir/app/com.myirancell">
-                  اپلیکیشن ما رو دانلود کن
+                   دانلود اپلیکشین ما
                  </Link>
-                 <img src={Logo} alt='Logo' className='size-20'/>
+                 <img src={Logo} alt='Logo' className='size-14'/>
            </div>
         </div>
       </div>
@@ -57,3 +61,18 @@ function LeftSide() {
 }
 
 export default LeftSide;
+
+
+const Services = ({icon , title , date}) => {
+  return(
+    <div className="flex-center gap-3 mb-6">
+        <p className="size-10 flex-center bg-primary/20 text-primary rounded-lg">{icon}</p>
+        <div className="flex flex-col gap-2.5 text-sm">
+           <span>{title}</span>
+           <span>{date}</span>
+        </div>
+    </div> 
+  )
+}
+
+export {Services}
