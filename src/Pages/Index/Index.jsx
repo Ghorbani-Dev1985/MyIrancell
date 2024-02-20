@@ -1,5 +1,6 @@
 import React from "react";
 import Chart from "../../common/Chart/Chart";
+import SuggestPack from "./SuggestPack";
 
 
 const data = [
@@ -51,7 +52,8 @@ function Index() {
  
   return (
     <>
-       <Chart title=" میزان مصرف کل" key={data} data={data} dataKey="name" />
+       <Chart title=" میزان مصرف کل" key={data} data={data} XdataKey="name" />
+       <SuggestPack />
     </>
   );
 }

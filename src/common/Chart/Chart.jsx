@@ -3,7 +3,7 @@ import React from 'react'
 import {ResponsiveContainer , XAxis , Tooltip, AreaChart, YAxis, Area} from 'recharts'
 
 
-function Chart({key, title , data }) {
+function Chart({key, title , data , XdataKey , Ydatakey}) {
   return (
     <Box key={key} className="my-8 shadow-round p-2 rounded-lg">
       <h3 className='my-3 font-MorabbaBold text-2xl'>{title}</h3>
@@ -21,10 +21,10 @@ function Chart({key, title , data }) {
               bottom: 0,
             }}
           >
-            <XAxis dataKey="name" />
-            <YAxis />
+            <XAxis dataKey={XdataKey} tick={{ dy: 5 }}/>
+            <YAxis dataKey={Ydatakey} tick={{ dx: -45 }} />
             <Tooltip />
-            <Area type="monotone" dataKey="pv" stroke="#ffcc00" fill="#ffcc00" />
+            <Area type="monotone" dataKey="pv" stroke="#ffcc00" strokeWidth={4} fill="#ffcc007a" />
           </AreaChart>
       </ResponsiveContainer>   : <Skeleton variant="rounded" className='w-full h-full min-h-96' />
       }
