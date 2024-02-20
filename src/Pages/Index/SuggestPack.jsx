@@ -26,10 +26,10 @@ function SuggestPack() {
             </tr>
         </thead>
         <tbody>
-            <tr className="bg-white border-b hover:bg-gray-50 text-center">
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+            <tr className="bg-white text-black border-b hover:bg-gray-50 text-center">
+                <td scope="row" className="px-6 py-4">
                    ۱۵ فروردین ۱۴۰۳
-                </th>
+                </td>
                 <td className="px-6 py-4">
                     بسته اینترنت سه ماهه
                 </td>
@@ -40,13 +40,13 @@ function SuggestPack() {
                     100,000
                 </td>
                 <td className="px-6 py-4 text-right">
-                    <a href="#" className="font-DanaBold text-base bg-primary text-black px-5 py-2 rounded-lg">خرید</a>
+                    <a href="#" className="font-DanaBold text-base bg-primary text-black px-5 py-1 rounded-lg">خرید</a>
                 </td>
             </tr>
-            <tr className="bg-white border-b hover:bg-gray-50 text-center">
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+            <tr className="bg-white text-black border-b hover:bg-gray-50 text-center">
+                <td scope="row" className="px-6 py-4">
                    ۱۵ فروردین ۱۴۰۳
-                </th>
+                </td>
                 <td className="px-6 py-4">
                     بسته اینترنت سه ماهه
                 </td>
@@ -57,7 +57,7 @@ function SuggestPack() {
                     100,000
                 </td>
                 <td className="px-6 py-4 text-right">
-                    <a href="#" className="font-DanaBold text-base bg-primary text-black px-5 py-2 rounded-lg">خرید</a>
+                    <a href="#" className="font-DanaBold text-base bg-primary text-black px-5 py-1 rounded-lg">خرید</a>
                 </td>
             </tr>
         </tbody>

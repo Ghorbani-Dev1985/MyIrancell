@@ -2,18 +2,19 @@ import React from 'react'
 import Logo from '../../assets/Images/Logo/logo.svg'
 import { Button, Divider } from '@mui/material'
 import { Search } from '@mui/icons-material'
+import Menu from './Menu'
 
 
 function RightSide() {
   return (
-    <div className='gird col-span-2 bg-white p-2'>
-        <div className='flex-center gap-2'>
+    <div className='gird col-span-2 bg-white'>
+        <div className='flex-center gap-2 mt-3'>
        <img src={Logo} alt='Logo' className='size-20'/>
        <span className='font-MorabbaBold text-2xl'>ایرانسل من</span>
         </div>
         <Divider />
         {/* Search */}
-        <label class="relative w-full h-12 block transition-all my-3">
+        <label class="relative w-full h-12 block transition-all my-3 px-2">
                 <input 
                   class="rounded-xl bg-gray-100 outline-none text-slate-500 placeholder:text-slate-500  w-full h-full dark:border text-base pl-12 pr-5 block transition-all"
                   name="s"
@@ -29,6 +30,7 @@ function RightSide() {
                   <Search className="size-6" />
                 </button>
               </label>
+              <Menu />
     </div>
   )
 }
