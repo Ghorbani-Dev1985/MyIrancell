@@ -59,3 +59,4 @@ function Index() {
 }
 
 export default Index;
+// sudo /opt/lampp/./manager-linux-x64.run

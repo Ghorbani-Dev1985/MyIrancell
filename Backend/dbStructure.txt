@@ -1,0 +1,30 @@
+users 
+    id
+    firstname
+    lastname
+    profile
+    charge
+
+services
+    id
+    icon
+    title
+    maxDate
+    isActive
+
+recommendPackage
+    id
+    title
+    off
+    price
+    maxDate
+    userID
+
+sales
+    id
+    buyDate
+    maxDate
+    title
+    off
+    price
+    userID
