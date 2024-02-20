@@ -1,9 +1,10 @@
 users 
     id
-    firstname
-    lastname
+    firstName
+    lastName
     profile
     charge
+    phoneNumber
 
 services
     id
