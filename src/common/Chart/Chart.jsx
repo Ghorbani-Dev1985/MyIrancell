@@ -1,22 +1,31 @@
 import { Box, Skeleton } from '@mui/material'
 import React from 'react'
-import {ResponsiveContainer , LineChart , Line , XAxis , CartesianGrid, Tooltip} from 'recharts'
+import {ResponsiveContainer , XAxis , Tooltip, AreaChart, YAxis, Area} from 'recharts'
 
 
-function Chart({key, title , data , dataKey , grid}) {
+function Chart({key, title , data }) {
   return (
     <Box key={key} className="my-8 shadow-round p-2 rounded-lg">
-      <h3 className='my-3'>{title}</h3>
+      <h3 className='my-3 font-MorabbaBold text-2xl'>{title}</h3>
       {
         data.length ? <ResponsiveContainer width="100%" aspect={3}>
-        <LineChart data={data} >
-            <XAxis dataKey="name" stroke='#5550bd'/>
-            <Line type="monotone" dataKey={dataKey} stroke='#5550bd'/>
+        <AreaChart
+            width={500}
+            height={200}
+            data={data}
+            syncId="anyId"
+            margin={{
+              top: 10,
+              right: 30,
+              left: 0,
+              bottom: 0,
+            }}
+          >
+            <XAxis dataKey="name" />
+            <YAxis />
             <Tooltip />
-            {
-                grid && <CartesianGrid stroke='#c0dfdf' strokeDasharray="10" />
-            }
-        </LineChart>
+            <Area type="monotone" dataKey="pv" stroke="#ffcc00" fill="#ffcc00" />
+          </AreaChart>
       </ResponsiveContainer>   : <Skeleton variant="rounded" className='w-full h-full min-h-96' />
       }
     </Box>
