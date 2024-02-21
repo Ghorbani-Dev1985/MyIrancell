@@ -1,8 +1,3 @@
-const BaseURL = 'http://localhost:5000/v1/';
-
-
-
-export {BaseURL }
 
 function ChangeGregorianDateToPersian(date) {
     console.log(+date)

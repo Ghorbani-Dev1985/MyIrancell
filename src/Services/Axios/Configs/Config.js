@@ -3,11 +3,12 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 
+
+
 const ApiRequest = axios.create({
-    baseURL: 'http://localhost:5000/v1/',
+    baseURL: 'http://localhost:3000/api/',
     headers: {
-        'Content-Type' : 'application/json',
-        Authorization : `Bearer ${JSON.parse(localStorage.getItem('user')).token}`
+        Authorization : `${localStorage.getItem('userToken')}`
     },
 })
 
@@ -28,7 +29,6 @@ ApiRequest.interceptors.response.use(
         if(status === 403){
             toast.error('دسترسی غیر مجاز')
          
-          useNavigate('/login')
         }else if(status === 404){
             toast.error("  کد تخفیف معتبر نمی باشد")
         }else if(error.response.status === 409){

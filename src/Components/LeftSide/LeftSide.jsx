@@ -3,7 +3,7 @@ import {
   MailOutlineOutlined,
   WifiOutlined,
 } from "@mui/icons-material";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   CircularProgressbar,
   CircularProgressbarWithChildren,
@@ -11,8 +11,12 @@ import {
 } from "react-circular-progressbar";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/Images/Logo/logo.svg";
+import useFetch from "../../Hooks/useFetch";
+import axios from "axios";
 
 function LeftSide() {
+   const {datas : users} = useFetch('users')
+   console.log(users)
   const percentage = 30;
   return (
     <section className="grid col-span-2 min-h-screen">
@@ -20,11 +24,15 @@ function LeftSide() {
         {/* Profile Info */}
         <div className="bg-white flex-between max-h-20 rounded-3xl p-2">
           <span className="rounded-full text-slate-200 ring-4 ring-primary">
-            <AccountCircle className="size-14" />
+            {
+              users[0].profile === null ? <AccountCircle className="size-14" /> :
+              <img src={users[0].profile} alt={users[0].lastName} className="size-14"/>
+            }
+            
           </span>
           <p className="flex flex-col gap-1">
-            <span className="font-DanaBold">محمد قربانی</span>
-            <span className="text-sm">09358923824</span>
+            <span className="font-DanaBold">{users[0].firstName} {users[0].lastName}</span>
+            <span className="text-sm">{users[0].phoneNumber}</span>
           </p>
         </div>
         {/* Charge Info */}
@@ -36,7 +44,7 @@ function LeftSide() {
             </h2>
             <div className="w-full mx-auto">
               <CircularProgressbarWithChildren
-                value={percentage}
+                value={users[0].charge / 1000}
                 styles={buildStyles({
                   strokeLinecap: "butt",
                   textSize: "14px",
@@ -46,13 +54,13 @@ function LeftSide() {
                   trailColor: "#d6d6d6",
                 })}
               >
-                <p className="font-DanaBold text-xl">{percentage} تومان</p>
+                <p className="font-DanaBold text-xl">{users[0].charge / 1000} تومان</p>
               </CircularProgressbarWithChildren>
             </div>
             <p className="flex-center bg-primary/10 font-DanaBold text-sm my-8 p-2 rounded-lg border border-primary/30 relative">
-              <span class="absolute left-0 -top-1 flex size-3">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span class="relative inline-flex rounded-full size-3 bg-primary"></span>
+              <span className="absolute left-0 -top-1 flex size-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full size-3 bg-primary"></span>
               </span>
               سیم کارتت رو شارژ کن
             </p>

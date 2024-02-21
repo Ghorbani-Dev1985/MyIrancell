@@ -14,15 +14,15 @@ function RightSide() {
         </div>
         <Divider />
         {/* Search */}
-        <label class="relative w-full h-12 block transition-all my-3 px-2">
+        <label className="relative w-full h-12 block transition-all my-3 px-2">
                 <input 
-                  class="rounded-xl bg-gray-100 outline-none text-slate-500 placeholder:text-slate-500  w-full h-full dark:border text-base pl-12 pr-5 block transition-all"
+                  className="rounded-xl bg-gray-100 outline-none text-slate-500 placeholder:text-slate-500  w-full h-full dark:border text-base pl-12 pr-5 block transition-all"
                   name="s"
                   type="text"
                   placeholder="جستجو"
                 />
                 <button
-                  btnType="submit"
+                  type="submit"
                   className="absolute left-4 top-0 bottom-0 w-6 h-6 my-auto text-slate-500 dark:text-gray-500"
                   disabled={false}
                   

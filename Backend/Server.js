@@ -1,14 +1,14 @@
-const exports = require('express')
+const express = require('express')
 const cors = require('cors')
 const MyIrancellDB = require('./DB/MyIrancellDB')
 const getUserIDFromUserToken = require('./Utils/Funcs')
 
 
-const app = exports()
-app,use(cors())
+const app = express()
+app.use(cors())
 
 app.get('/api/users' , (req , res) => {
-    let userToken = req.header.authorization
+    let userToken = req.headers.authorization
     let getMainUserQuery = `SELECT * FROM users WHERE token = "${userToken}"`
     MyIrancellDB.query(getMainUserQuery , (error , result) => {
         if(error){
@@ -19,7 +19,7 @@ app.get('/api/users' , (req , res) => {
     })
 })
 
-app.get('api/services/:isActive' , (req , res) => {
+app.get('/api/services/:isActive' , (req , res) => {
     let isActive = req.params.isActive
     let getServicesQuery = `SELECT * FROM services WHERE isActive = ${isActive}`
     MyIrancellDB.query(getServicesQuery , (error , result) => {
@@ -31,7 +31,7 @@ app.get('api/services/:isActive' , (req , res) => {
     })
 })
 
-app.get('api/recommendPacks' , (req , res) => {
+app.get('/api/recommendPacks' , (req , res) => {
     let userToken = req.headers.authorization
     let userID = null;
     getUserIDFromUserToken(userToken)
@@ -48,7 +48,7 @@ app.get('api/recommendPacks' , (req , res) => {
     })
 })
 
-app.get('api/userBuy' , (req , res) => {
+app.get('/api/userBuy' , (req , res) => {
     let userToken = req.headers.authorization
     let userID = getUserIDFromUserToken(userToken)
     let getUserBuyInfo = `SELECT * FROM sales WHERE userID = ${userID}`

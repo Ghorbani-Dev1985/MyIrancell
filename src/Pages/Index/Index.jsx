@@ -52,7 +52,7 @@ function Index() {
  
   return (
     <>
-       <Chart title=" میزان مصرف کل" key={data} data={data} XdataKey="name" />
+       <Chart title=" میزان مصرف کل" key={data.name} data={data} XdataKey="name" />
        <SuggestPack />
     </>
   );

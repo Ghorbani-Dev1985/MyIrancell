@@ -2,7 +2,6 @@
 import { Toaster } from 'react-hot-toast'
 import routes from './Routes'
 import { useRoutes } from 'react-router-dom'
-import MainProvider from './common/MainProvider/MainProvider'
 
 
 function App() {
@@ -10,9 +9,7 @@ function App() {
   return (
     <>
      <Toaster />
-     <MainProvider> 
             {router}
-     </MainProvider>
     </>
   )
 }
