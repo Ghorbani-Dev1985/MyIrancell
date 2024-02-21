@@ -9,7 +9,7 @@ app.use(cors())
 
 app.get('/api/users' , (req , res) => {
     let userToken = req.headers.authorization
-    let getMainUserQuery = `SELECT * FROM users WHERE token = "${userToken}"`
+    let getMainUserQuery = `SELECT * FROM users WHERE token = ${userToken}`
     MyIrancellDB.query(getMainUserQuery , (error , result) => {
         if(error){
             res.send(null)

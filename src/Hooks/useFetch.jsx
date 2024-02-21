@@ -3,14 +3,11 @@ import ApiRequest from "../Services/Axios/Configs/Config";
 
 const useFetch = (url) => {
   const [datas, setDatas] = useState([]);
-  const abortController = new AbortController()
   useEffect(() => {
-    const ResponseResult = ApiRequest(`${url}` , {signal: abortController.signal}).then((ResponseResult) => {
+    const ResponseResult = ApiRequest(`${url}`)
+    .then((ResponseResult) => {
       setDatas(ResponseResult.data);
     });
-    return () => {
-      abortController.abort()
-    }
   }, [url]);
   return { datas };
 };
