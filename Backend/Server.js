@@ -56,3 +56,5 @@ app.get('api/userBuy' , (req , res) => {
         } 
     })
 })
+
+app.listen(3000)
