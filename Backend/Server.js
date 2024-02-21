@@ -9,7 +9,7 @@ app,use(cors())
 
 app.get('/api/users' , (req , res) => {
     let userToken = req.header.authorization
-    let getMainUserQuery = `SELECT * FROM users WHERE token = ${userToken}`
+    let getMainUserQuery = `SELECT * FROM users WHERE token = "${userToken}"`
     MyIrancellDB.query(getMainUserQuery , (error , result) => {
         if(error){
             res.send(null)
@@ -33,7 +33,11 @@ app.get('api/services/:isActive' , (req , res) => {
 
 app.get('api/recommendPacks' , (req , res) => {
     let userToken = req.headers.authorization
-    let userID = getUserIDFromUserToken(userToken)
+    let userID = null;
+    getUserIDFromUserToken(userToken)
+    .then((result) => {
+        userID = result[0].id
+    })
     let getUserRecommendPacksQuery = `SELECT * FROM recommendPackage WHERE userID = ${userID}`
     MyIrancellDB.query(getUserRecommendPacksQuery , (error , result) => {
         if(error){
