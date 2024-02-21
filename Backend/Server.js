@@ -1,6 +1,8 @@
 const exports = require('express')
 const cors = require('cors')
 const MyIrancellDB = require('./DB/MyIrancellDB')
+const getUserIDFromUserToken = require('./Utils/Funcs')
+
 
 const app = exports()
 app,use(cors())
@@ -31,7 +33,8 @@ app.get('api/services/:isActive' , (req , res) => {
 
 app.get('api/recommendPacks' , (req , res) => {
     let userToken = req.headers.authorization
-    let getUserRecommendPacksQuery = `SELECT * FROM recommendPackage WHERE userID = 1`
+    let userID = getUserIDFromUserToken(userToken)
+    let getUserRecommendPacksQuery = `SELECT * FROM recommendPackage WHERE userID = ${userID}`
     MyIrancellDB.query(getUserRecommendPacksQuery , (error , result) => {
         if(error){
             res.send(null)
@@ -43,7 +46,8 @@ app.get('api/recommendPacks' , (req , res) => {
 
 app.get('api/userBuy' , (req , res) => {
     let userToken = req.headers.authorization
-    let getUserBuyInfo = `SELECT * FROM sales WHERE userID = 1`
+    let userID = getUserIDFromUserToken(userToken)
+    let getUserBuyInfo = `SELECT * FROM sales WHERE userID = ${userID}`
     MyIrancellDB.query(getUserBuyInfo , (error , result) => {
         if(error){
             res.send(null)
