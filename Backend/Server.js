@@ -41,3 +41,14 @@ app.get('api/recommendPacks' , (req , res) => {
     })
 })
 
+app.get('api/userBuy' , (req , res) => {
+    let userToken = req.headers.authorization
+    let getUserBuyInfo = `SELECT * FROM sales WHERE userID = 1`
+    MyIrancellDB.query(getUserBuyInfo , (error , result) => {
+        if(error){
+            res.send(null)
+        }else{
+            res.send(result)
+        } 
+    })
+})
