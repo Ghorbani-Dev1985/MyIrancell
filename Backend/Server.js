@@ -29,3 +29,15 @@ app.get('api/services/:isActive' , (req , res) => {
     })
 })
 
+app.get('api/recommendPacks' , (req , res) => {
+    let userToken = req.headers.authorization
+    let getUserRecommendPacksQuery = `SELECT * FROM recommendPackage WHERE userID = 1`
+    MyIrancellDB.query(getUserRecommendPacksQuery , (error , result) => {
+        if(error){
+            res.send(null)
+        }else{
+            res.send(result)
+        } 
+    })
+})
+
