@@ -13,7 +13,7 @@ function Layout() {
      <section className='grid col-span-8 pt-5'>
        <div className='container'>
         <div className='flex-center'>
-        <a href='https://irancell.ir/p/309368/economical-quality-mobile-phones-2' target='_blank'><img src={TopBanner} alt='topBanner' className='rounded-lg shadow-ring w-full h-44' /></a>
+        <a href='https://irancell.ir/p/309368/economical-quality-mobile-phones-2' target='_blank'><img src={TopBanner} alt='topBanner' className='rounded-lg shadow-ring w-full' /></a>
         </div>
         <Outlet />
        </div>

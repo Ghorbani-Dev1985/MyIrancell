@@ -16,3 +16,16 @@ app.get('/api/users' , (req , res) => {
         }
     })
 })
+
+app.get('api/services/:isActive' , (req , res) => {
+    let isActive = req.params.isActive
+    let getServicesQuery = `SELECT * FROM services WHERE isActive = ${isActive}`
+    MyIrancellDB.query(getServicesQuery , (error , result) => {
+        if(error){
+            res.send(null)
+        }else{
+            res.send(result)
+        } 
+    })
+})
+
