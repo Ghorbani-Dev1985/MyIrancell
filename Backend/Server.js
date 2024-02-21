@@ -37,14 +37,14 @@ app.get('api/recommendPacks' , (req , res) => {
     getUserIDFromUserToken(userToken)
     .then((result) => {
         userID = result[0].id
-    })
-    let getUserRecommendPacksQuery = `SELECT * FROM recommendPackage WHERE userID = ${userID}`
-    MyIrancellDB.query(getUserRecommendPacksQuery , (error , result) => {
-        if(error){
-            res.send(null)
-        }else{
-            res.send(result)
-        } 
+        let getUserRecommendPacksQuery = `SELECT * FROM recommendPackage WHERE userID = ${userID}`
+        MyIrancellDB.query(getUserRecommendPacksQuery , (error , result) => {
+            if(error){
+                res.send(null)
+            }else{
+                res.send(result)
+            } 
+        })
     })
 })
 
