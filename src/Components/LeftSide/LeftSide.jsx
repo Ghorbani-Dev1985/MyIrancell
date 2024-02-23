@@ -12,7 +12,6 @@ import {
 import { Link } from "react-router-dom";
 import Logo from "../../assets/Images/Logo/logo.svg";
 import useFetch from "../../Hooks/useFetch";
-import axios from "axios";
 import ApiRequest from "../../Services/Axios/Configs/Config";
 
 function LeftSide() {
@@ -35,7 +34,7 @@ function LeftSide() {
           <span className="rounded-full text-slate-200 ring-4 ring-primary">
             {
               userInfos.profile === null ? <AccountCircle className="size-14" /> :
-              <img src={`http://localhost:3000${userInfos.profile}`} alt={userInfos.lastName} className="size-14"/>
+              <img src={`../../../Backend${userInfos.profile}`} alt={userInfos.lastName} className="size-14 rounded-full"/>
             }
             
           </span>
