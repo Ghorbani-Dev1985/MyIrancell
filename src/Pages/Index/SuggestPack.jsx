@@ -46,7 +46,7 @@ function SuggestPack() {
                     {price.toLocaleString()}
                 </td>
                 <td className="px-6 py-4 text-right">
-                    <a href="#" className="font-DanaBold text-base bg-primary text-black px-5 py-1 rounded-lg">خرید</a>
+                    <a href="https://irancell.ir/p/10059/packages" className="font-DanaBold text-base bg-primary text-black px-5 py-1 rounded-lg">خرید</a>
                 </td>
             </tr>
                         </React.Fragment>
