@@ -1,6 +1,8 @@
 import React from 'react'
+import useFetch from '../../Hooks/useFetch'
 
 function SuggestPack() {
+    const {datas : recommendPacks} = useFetch('recommendPacks')
   return (
     <div className='my-8 shadow-round p-2 rounded-lg'>
     <h2 className='font-MorabbaBold my-5'>بسته های پیشنهادی مخصوص شما</h2>
@@ -26,40 +28,32 @@ function SuggestPack() {
             </tr>
         </thead>
         <tbody>
+            {
+                recommendPacks.map(({ID , maxDate , off , price , title}) => {
+                    return(
+                        <React.Fragment key={ID}>
             <tr className="bg-white text-black border-b hover:bg-gray-50 text-center">
                 <td scope="row" className="px-6 py-4">
-                   ۱۵ فروردین ۱۴۰۳
+                   {maxDate}
                 </td>
                 <td className="px-6 py-4">
-                    بسته اینترنت سه ماهه
+                  {title}
                 </td>
                 <td className="px-6 py-4">
-                    ۲۰٪
+                    {off}٪
                 </td>
                 <td className="px-6 py-4">
-                    100,000
+                    {price.toLocaleString()}
                 </td>
                 <td className="px-6 py-4 text-right">
                     <a href="#" className="font-DanaBold text-base bg-primary text-black px-5 py-1 rounded-lg">خرید</a>
                 </td>
             </tr>
-            <tr className="bg-white text-black border-b hover:bg-gray-50 text-center">
-                <td scope="row" className="px-6 py-4">
-                   ۱۵ فروردین ۱۴۰۳
-                </td>
-                <td className="px-6 py-4">
-                    بسته اینترنت سه ماهه
-                </td>
-                <td className="px-6 py-4">
-                    ۲۰٪
-                </td>
-                <td className="px-6 py-4">
-                    100,000
-                </td>
-                <td className="px-6 py-4 text-right">
-                    <a href="#" className="font-DanaBold text-base bg-primary text-black px-5 py-1 rounded-lg">خرید</a>
-                </td>
-            </tr>
+                        </React.Fragment>
+                    )
+                })
+            }
+          
         </tbody>
     </table>
 </div>

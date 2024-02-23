@@ -1,6 +1,9 @@
 import React from 'react'
+import useFetch from '../../../Hooks/useFetch'
 
 const Orders = () => {
+    const {datas : userBuy} = useFetch('userBuy')
+    console.log(userBuy)
   return (
     <div className='my-8 shadow-round p-2 rounded-lg'>
     <h2 className='font-MorabbaBold my-5'>بسته های من</h2>
@@ -27,9 +30,12 @@ const Orders = () => {
             </tr>
         </thead>
         <tbody>
+            {
+                 userBuy.map(({ID,buyDate , maxDate, off , price , title}) => {
+               return(
             <tr className="bg-white text-black border-b hover:bg-gray-50 text-center">
             <td scope="row" className="px-6 py-4">
-                   ۱۵ فروردین ۱۴۰۳
+                  {buyDate}
                 </td>
                 <td scope="row" className="px-6 py-4">
                    ۱۵ فروردین ۱۴۰۳
@@ -45,6 +51,9 @@ const Orders = () => {
                 </td>
                 
             </tr>
+               )
+                })
+            }
             <tr className="bg-white text-black border-b hover:bg-gray-50 text-center">
             <td scope="row" className="px-6 py-4">
                    ۱۵ فروردین ۱۴۰۳
